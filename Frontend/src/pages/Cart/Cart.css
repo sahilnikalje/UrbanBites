@@ -27,7 +27,8 @@
     margin-top: 80px;
     display: flex;
     justify-content: space-between;
-    gap: max(12vw, 2opx);
+    /* gap: max(12vw, 2opx); */
+    gap: 40px;
 }
 .cart-total{
     flex:1;
