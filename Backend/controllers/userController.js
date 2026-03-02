@@ -51,7 +51,7 @@ const registerUser=async(req,res)=>{
 
         //todo generate token
         const token=createToken(user._id)
-        res.status(200).json({success:true, token})
+        res.status(200).json({success:true, message:"Registered Succesfully" ,token})
     }
     catch(err){
         console.log("registerErr: ", err.message)
@@ -80,7 +80,7 @@ const loginUser=async(req,res)=>{
 
         const token=createToken(user._id)
 
-        res.status(201).json({success:true, token})
+        res.status(201).json({success:true, message:"Loggedin Successfully" ,token})
     }
     catch(err){
         console.log("loginErr: ", err.message)
