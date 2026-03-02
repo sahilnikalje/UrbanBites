@@ -12,18 +12,31 @@ const StoreContextProvider = ({ children }) => {
 
 //**these functions are to keep the record of the added items and removed items by their id */
 //*todo check the console once 
-    const addToCart=(itemId)=>{
+    const addToCart=async (itemId)=>{
         if(!cartItems[itemId]){
             setCartItems((prev)=>({...prev, [itemId]:1}))
         }
         else{
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         }
+        
+        //todo check if the token is available or not
+        //todo to use add, remove, get cart functionalities
+        if(token){
+            await axios.post(url+"/api/cart/add", {itemId}, {headers:{token}})
+        }
+
     }
 
     //todo remove from cart function
-    const removeFromCart=(itemId)=>{
+    const removeFromCart=async(itemId)=>{
         setCartItems((prev)=>({...prev, [itemId]:prev[itemId]-1}))
+
+        //todo check if the token is available or not
+        //todo to use add, remove, get cart functionalities
+        if(token){
+            axios.post(url+'/api/cart/remove', {itemId}, {headers:{token}})
+        }
     }
 
     //todo total cart amount function
@@ -47,15 +60,21 @@ const StoreContextProvider = ({ children }) => {
         setFood_list(response.data.data)
     }
 
+    const loadCartData=async(token)=>{
+        const response=await axios.post(url+'/api/cart/get',{},{headers:{token}})
+        setCartItems(response.data.cartData)
+    }
+
 
     //! as we use localstorage, when we refresh the page, user will get logout
-    //! to prevent this we use ueeEffect with this condition
+    //! to prevent this we use useEffect with this condition
     useEffect(()=>{
         async function loadData(){
             await fetchFoodList()
 
           if(localStorage.getItem("token")){
             setToken(localStorage.getItem("token"))
+            await loadCartData(localStorage.getItem("token"))
           }
         }
         loadData()

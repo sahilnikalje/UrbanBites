@@ -3,6 +3,7 @@ import './LoginPopup.css'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
 import axios from 'axios'
+import {toast} from 'react-toastify'
 
 const LoginPopup = ({setShowLogin}) => {
     const{url, setToken}=useContext(StoreContext)
@@ -30,17 +31,25 @@ const LoginPopup = ({setShowLogin}) => {
         else{
             newUrl+='/api/user/register'
         }
-
+        
         //! this will handle both login and register
-        const response=await axios.post(newUrl, data)
-
-        if(response.data.success){
-           setToken(response.data.token)
-           localStorage.setItem("token", (await response).data.token)  
+        try{
+          const response=await axios.post(newUrl, data)
+          if(response.data.success){
+            setToken(response.data.token)
+           localStorage.setItem("token",  response.data.token)  
+           toast.success(response.data.message)
            setShowLogin(false) 
+          }
         }
-        else{
-            alert(response.data.message)
+        catch(err){
+           if(err.response && err.response.data && err.response.data.message){
+            toast.error(err.response.data.message)
+           }
+           else{
+            toast.error("Something went wrong")
+           }
+           console.log(err.message)
         }
     }
 
