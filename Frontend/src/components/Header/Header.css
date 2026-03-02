@@ -53,3 +53,31 @@
         padding:2vw 4vw;
     }
 }
+
+
+@media (max-width: 550px) {
+  .header {
+    height: 45vw;
+  }
+  .header-contents {
+    max-width: 70%;
+    gap: 2vw;
+  }
+  .header-contents h2 {
+    font-size: max(5vw, 18px);
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    height: 52vw;
+  }
+  .header-contents {
+    max-width: 80%;
+    left: 4vw;
+  }
+  .header-contents button {
+    padding: 3vw 5vw;
+    font-size: 12px;
+  }
+}

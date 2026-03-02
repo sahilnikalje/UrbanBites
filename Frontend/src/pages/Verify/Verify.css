@@ -17,3 +17,11 @@
         transform: rotate(360deg);
     }
 }
+
+
+@media (max-width: 480px) {
+  .verify .spinner {
+    width: 70px;
+    height: 70px;
+  }
+}

@@ -161,3 +161,36 @@
     }
 
 }
+
+
+@media (max-width: 550px) {
+  .navbar {
+    padding: 15px 0;
+  }
+  .navbar .logo {
+    width: 100px;
+  }
+  .navbar-right {
+    gap: 15px;
+  }
+  .navbar button {
+    padding: 6px 15px;
+    font-size: 13px;
+  }
+  .navbar-right img {
+    width: 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar .logo {
+    width: 85px;
+  }
+  .navbar button {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+  .nav-profile-dropdown {
+    padding: 10px 15px;
+  }
+}
