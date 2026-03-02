@@ -42,3 +42,55 @@
         width: 40px;
     }
 }
+
+/* ===== RESPONSIVE: Orders.css ===== */
+@media (max-width: 768px) {
+    .order-item {
+        grid-template-columns: 0.4fr 2fr 0.8fr;
+        gap: 12px;
+        padding: 14px 10px;
+        margin: 18px 0;
+        font-size: 12px;
+    }
+    .order-item img {
+        width: 36px;
+    }
+    .order-item select {
+        width: 100%;
+        max-width: 100%;
+        font-size: 11px;
+        padding: 6px;
+    }
+    .order-item-name {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .order-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 14px 12px;
+        margin: 14px 0;
+        font-size: 12px;
+    }
+    .order-item img {
+        width: 32px;
+    }
+    .order-item-name {
+        margin-top: 4px;
+    }
+    .order-item select {
+        width: 100%;
+        max-width: 100%;
+        padding: 9px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 400px) {
+    .order-item {
+        padding: 12px 10px;
+        font-size: 11px;
+    }
+}

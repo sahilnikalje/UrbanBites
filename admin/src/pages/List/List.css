@@ -26,3 +26,36 @@
         display: none;
     }
 }
+
+/* ===== RESPONSIVE: List.css ===== */
+@media (max-width: 768px) {
+    .list-table-format {
+        grid-template-columns: 0.5fr 2fr 1fr 0.5fr;
+        font-size: 12px;
+        padding: 10px 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .list-table-format {
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 10px;
+        font-size: 11px;
+        padding: 10px 8px;
+    }
+    .list-table-format.title {
+        display: none;
+    }
+    .list-table-format img {
+        width: 40px;
+    }
+}
+
+@media (max-width: 400px) {
+    .list-table-format {
+        grid-template-columns: 1fr 2fr 0.8fr;
+        gap: 6px;
+        font-size: 10px;
+        padding: 9px 6px;
+    }
+}

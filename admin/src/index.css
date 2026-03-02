@@ -29,3 +29,10 @@ hr{
     flex-direction: column;
     gap: 10px; 
 }
+
+/* ===== RESPONSIVE: index.css ===== */
+@media (max-width: 768px) {
+    .app-content {
+        flex-direction: column;
+    }
+}
